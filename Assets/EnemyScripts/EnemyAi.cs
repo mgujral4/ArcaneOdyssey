@@ -17,6 +17,9 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInsightRange, playerInAttackRange;
     private Animator animator;
+    
+    public Transform attackPoint;
+    public float damage;
 
     private void Awake()
     {
@@ -57,7 +60,8 @@ public class EnemyAI : MonoBehaviour
             transform.LookAt(player);
             animator.SetBool("isMoving", true);
         }
-       // if (playerInAttackRange && playerInsightRange) AttackPlayer();
+       
+       if (playerInAttackRange && playerInsightRange) AttackPlayer();
     }
 
     private void Patroling()
@@ -109,6 +113,13 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         { 
+            Collider[] hitEnemies =Physics.OverlapSphere(attackPoint.position,attackRange,whatIsPlayer);
+            foreach (Collider enemy in hitEnemies)
+            {
+                Debug.Log("We hit " + enemy.name);
+                enemy.GetComponent<PlayerHealthManager>().TakeDamage(damage);
+            
+            }
             Debug.Log("Attacking Player"); 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

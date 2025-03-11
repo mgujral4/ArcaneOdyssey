@@ -65,7 +65,7 @@ public class CombatScript : MonoBehaviour
         foreach (Collider enemy in hitEnemies)
         {
             Debug.Log("We hit " + enemy.name);
-            enemy.GetComponent<EnemyHealthManager>().TakeDamage(damage);
+            enemy.GetComponent<HealthManager>().TakeDamage(damage);
             
         }
         
