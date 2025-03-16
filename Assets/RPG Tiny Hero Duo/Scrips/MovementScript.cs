@@ -17,6 +17,8 @@ public class characterMove2 : MonoBehaviour
     private int isWalkingHash;
     
     private int isRunningHash;
+    
+    public float walkMultiplier = 1.5f;
 
     public float runMultiplier = 3.0f;
     
@@ -108,8 +110,8 @@ public class characterMove2 : MonoBehaviour
     void onMovementInput(InputAction.CallbackContext context)
     {
         currentMovementInput = context.ReadValue<Vector2>(); // Read input values correctly
-        currentMovement.x = currentMovementInput.x;
-        currentMovement.z = currentMovementInput.y;
+        currentMovement.x = currentMovementInput.x *walkMultiplier;
+        currentMovement.z = currentMovementInput.y *walkMultiplier;
         currentRunMovement.x = currentMovementInput.x * runMultiplier;
         currentRunMovement.z = currentMovementInput.y * runMultiplier;
         isMovementPressed = currentMovementInput.magnitude > 0;
@@ -118,23 +120,8 @@ public class characterMove2 : MonoBehaviour
     void Update()
     {
         
-        bool isAttacking = false;
-        bool isDancing = false;
-        bool isVaulting = false;
-        bool isJumping1 = false;
+       
         hanldeGravity();    
-        
-        
-        isAttacking = Input.GetKey(KeyCode.LeftControl);
-        isDancing = Input.GetKey(KeyCode.X);
-        isVaulting = Input.GetKey(KeyCode.Z);
-        isJumping1 = Input.GetKey(KeyCode.C);
-        
-        animator.SetBool("isAttacking", isAttacking);
-        animator.SetBool("isDancing", isDancing);
-        animator.SetBool("isVaulting", isVaulting);
-        animator.SetBool("isJumping1", isJumping1);
-
         
         Vector3 moveDirection;
         handleAnimation();

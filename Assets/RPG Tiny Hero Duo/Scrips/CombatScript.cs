@@ -58,7 +58,7 @@ public class CombatScript : MonoBehaviour
     }
 
 
-    void AttackMechanics(float damage)
+    public void AttackMechanics(float damage)
     {
         Collider[] hitEnemies =Physics.OverlapSphere(attackPoint.position,attackRange,EnemyLayers);
 

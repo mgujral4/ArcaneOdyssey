@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
         if (!playerInsightRange && !playerInAttackRange)
         {
             Patroling();
-            transform.LookAt(player);
+           // transform.LookAt(player);
             //animator.SetBool("isMoving", true);
             
         }

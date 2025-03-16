@@ -3,11 +3,11 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-      float maxHealth = 100;
+      public float maxHealth = 100;
     public float currentHealth;
      Animator animator;
-    //public healthBarScript HealthBar;
-    public float deathTime = 2F;
+    public healthBarScript HealthBar;
+    
     
     
     
@@ -40,7 +40,7 @@ public class HealthManager : MonoBehaviour
        // HealthBar.SetHealth(0);
         
         
-        Destroy(gameObject,3F);
+        Destroy(gameObject,2F);
         
     }
 
