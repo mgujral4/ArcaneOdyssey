@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 182d9da36872ada4fa4adf811b9f4987
+timeCreated: 1535020794
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 128097
+  packageName: Battle Wizard Poly Art
+  packageVersion: 1.2
+  assetPath: Assets/WizardPolyArt/Animations/WizardAnimControl.controller
+  uploadId: 422634
